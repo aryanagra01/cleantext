@@ -8,7 +8,9 @@ export function QRCode() {
   const [url, setUrl] = useState<string | null>(null)
 
   useEffect(() => {
-    setUrl("https://aryanagra01.github.io/cleantext")
+    if (typeof window !== "undefined") {
+      setUrl(window.location.origin + window.location.pathname)
+    }
   }, [])
 
   if (!url) return null
