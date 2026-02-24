@@ -97,17 +97,18 @@ def collapse_repeats(s):
     if not s:
         return s
 
-    out = [s[0]]
-    run_len = 1
-
-    for ch in s[1:]:
-        if ch == out[-1]:
+    out = []
+    i = 0
+    while i < len(s):
+        ch = s[i]
+        run_len = 1
+        while i + run_len < len(s) and s[i + run_len] == ch:
             run_len += 1
-            if run_len >= 2:  
-                continue
+        if run_len > 3:
+            out.append(ch)
         else:
-            run_len = 1
-        out.append(ch)
+            out.append(ch * run_len)
+        i += run_len
 
     return ''.join(out)
 
@@ -131,6 +132,6 @@ def translate(text):
     return ' '.join(results)
 
 
-input_text = "U r gr8, thx for asking!!! idk... whattttt i'm doing tmr tho."
+input_text = "U r gr8, thx for askingg!!! idk... whattttt i'm doing tmr tho."
 print(translate(input_text))
 

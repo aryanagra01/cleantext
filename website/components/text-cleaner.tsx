@@ -90,17 +90,20 @@ function stripPunctuation(s: string): string {
 
 function collapseRepeats(s: string): string {
   if (!s) return s
-  const out: string[] = [s[0]!]
-  let runLen = 1
-  for (let i = 1; i < s.length; i++) {
+  const out: string[] = []
+  let i = 0
+  while (i < s.length) {
     const ch = s[i]!
-    if (ch === out[out.length - 1]) {
+    let runLen = 1
+    while (i + runLen < s.length && s[i + runLen] === ch) {
       runLen++
-      if (runLen >= 2) continue
-    } else {
-      runLen = 1
     }
-    out.push(ch)
+    if (runLen > 3) {
+      out.push(ch)
+    } else {
+      out.push(ch.repeat(runLen))
+    }
+    i += runLen
   }
   return out.join("")
 }
