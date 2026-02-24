@@ -76,8 +76,8 @@ const TEXT_TO_ENGLISH: Record<string, string> = {
   "tmi": "too much information",
   "gg": "going",
  "rn": "right now",
-"BTWITIAILWU": "by the way i think i am in love with u",
-"DYWMTCOAEYPTYCOMF": "Do You Want Me To Come Over And Eat Your Pussy, You Creamy Old Mother Fucker",
+"btwituailwu": "by the way i think i am in love with u",
+"dywmtcoaeyptycomf": "Do You Want Me To Come Over And Eat Your Pussy, You Creamy Old Mother Fucker",
 }
 
 // Python string.punctuation equivalent
